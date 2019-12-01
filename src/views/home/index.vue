@@ -5,8 +5,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    console.log(this.$store.state.count);
+    this.$store.dispatch("startPlay", 5);
+    console.log(this.$store.state.count);
+  }
+};
 </script>
 
-<style>
-</style>
+<style></style>

@@ -1,3 +1,8 @@
+const path = require("path"); //引入path模块
+function resolve(dir) {
+  return path.join(__dirname, dir); //path.join(__dirname)设置绝对路径
+}
+
 module.exports = {
   /** 区分打包环境与开发环境
    * process.env.NODE_ENV==='production'  (打包环境)
@@ -15,7 +20,12 @@ module.exports = {
   //compiler: false,
   // webpack配置
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
-  chainWebpack: () => {},
+  chainWebpack: config => {
+    config.resolve.alias
+      .set("@", resolve("./src"))
+      .set("components", resolve("./src/components"));
+    //set第一个参数：设置的别名，第二个参数：设置的路径
+  },
   configureWebpack: () => {},
   //如果想要引入babel-polyfill可以这样写
   // configureWebpack: (config) => {
