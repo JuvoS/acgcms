@@ -15,6 +15,12 @@ export const appRouter = {
       icon: "md-person",
       name: "资源",
       component: () => import("../views/system/")
+    },
+    {
+      path: "kite",
+      icon: "md-person",
+      name: "kite",
+      component: () => import("../views/system/kite")
     }
   ]
 };

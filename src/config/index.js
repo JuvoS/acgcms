@@ -11,10 +11,9 @@ export default {
 
   http: {
     baseURL: baseUrl,
-
-    timeout: 10 * 1000,
     noToken: false,
-    showSpin: true
+
+    timeout: 10 * 1000
   },
   restURL: "http://127.0.0.1:" + "6321"
 };
