@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="system">
     <Table :columns="userColumn" :data="userData"></Table>
   </div>
 </template>
@@ -41,4 +41,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.system {
+  display: block;
+}
 </style>

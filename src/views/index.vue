@@ -1,24 +1,29 @@
 <template>
   <div class="acg">
+    <LeftMenu @on-change="onLeftChange"></LeftMenu>
     <div class="acg-content">
-      <router-view></router-view>
-    </div>
-    <div class="acg-footer">
-      <MenuCell></MenuCell>
+      <HeadMenu @on-change="onHeadChange"></HeadMenu>
+      <div
+        class="acg-content-wrapper"
+        :style="{width:(leftState?'calc(100vW - 260px)':'calc(100vW - 60px)')}"
+      >
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { appRouter } from "../router/defines";
 export default {
   components: {
-    MenuCell: () => import("../components/MenuCell")
+    LeftMenu: () => import("@/components/DashBoard/LeftMenu"),
+    HeadMenu: () => import("@/components/DashBoard/HeadMenu")
   },
   data() {
     return {
-      menus: appRouter.children,
-      menuTitle: "ACG"
+      // menus: appRouter.children,
+      menuTitle: "ACG",
+      leftState: false
     };
   },
   computed: {},
@@ -32,7 +37,11 @@ export default {
         let title = _.find(this.menus, { path: type });
         this.menuTitle = title.name;
       }
-    }
+    },
+    onLeftChange(state) {
+      this.leftState = state;
+    },
+    onHeadChange(state) {}
   }
 };
 </script>
@@ -42,20 +51,22 @@ export default {
   height: 100%;
   width: 100%;
   background: #efefef;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 
   &-content {
-    height: 100vh;
-    padding: 16px;
-    overflow: hidden;
-    overflow-y: auto;
-  }
-  &-footer {
-    height: 50px;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: #ffffff;
-    box-shadow: 3px 3px 12px #c0c0c0;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    &-wrapper {
+      flex: 1;
+      overflow: hidden;
+      overflow-y: auto;
+      padding: 16px;
+    }
   }
 }
 </style>

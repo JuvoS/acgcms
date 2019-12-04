@@ -6,7 +6,6 @@
 </template>
 <script>
 import Vue from "vue";
-import { log } from "util";
 export default {
   data() {
     return {
@@ -73,8 +72,8 @@ export default {
       //     console.log(err);
       //   });
       let dataForm = {
-        // pageIndex: 2,
-        // pageSizeNum: 2
+        pageIndex: 1,
+        pageSizeNum: 20
       };
       this.$axios
         .post(this.$config.restURL + "/kite/page", JSON.stringify(dataForm))
