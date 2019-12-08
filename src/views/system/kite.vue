@@ -2,6 +2,13 @@
   <div>
     <Button @click="onAddKite">onAddKite</Button>
     <Table :columns="kiteColumn" :data="kiteData"></Table>
+    <mavon-editor v-model="kiteModel" />
+    <!-- <mavon-editor 
+     v-model = 'editorContent'
+     :ishljs="true"
+      :codeStyle="code_style"
+     ref=md @imgAdd="$imgAdd" @imgDel="$imgDel" @save=""
+      /> -->
   </div>
 </template>
 <script>
@@ -46,7 +53,9 @@ export default {
           }
         }
       ],
-      kiteData: []
+      kiteData: [],
+
+      kiteModel: ""
     };
   },
   mounted() {

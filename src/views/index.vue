@@ -2,10 +2,12 @@
   <div class="acg">
     <LeftMenu @on-change="onLeftChange"></LeftMenu>
     <div class="acg-content">
-      <HeadMenu @on-change="onHeadChange"></HeadMenu>
+      <HeadMenu @on-change="onHeadChange"> </HeadMenu>
       <div
         class="acg-content-wrapper"
-        :style="{width:(leftState?'calc(100vW - 260px)':'calc(100vW - 60px)')}"
+        :style="{
+          width: leftState ? 'calc(100vW - 260px)' : 'calc(100vW - 60px)'
+        }"
       >
         <router-view></router-view>
       </div>

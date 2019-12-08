@@ -21,6 +21,12 @@ export const appRouter = {
       icon: "md-person",
       name: "kite",
       component: () => import("../views/system/kite")
+    },
+    {
+      path: "editor",
+      icon: "md-create",
+      name: "editor",
+      component: () => import("../views/editor")
     }
   ]
 };
